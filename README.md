@@ -1,6 +1,6 @@
 # Personal PWA starter
 
-Minimal Next.js app using TypeScript and Tailwind CSS. Includes a sidebar shell layout, light/dark theme toggle, and a custom PWA setup (manifest + service worker caching core routes for offline support).
+Minimal Next.js app using TypeScript and Tailwind CSS. The starter ships with a sidebar shell layout, light/dark theme toggle, and a custom PWA setup (manifest plus a service worker that caches core routes for offline support).
 
 ## Getting started
 
