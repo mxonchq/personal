@@ -1,6 +1,6 @@
 # Personal PWA starter
 
-Minimal Next.js app using TypeScript and Tailwind CSS. The starter ships with a sidebar shell layout, light/dark theme toggle, and a custom PWA setup (manifest plus a service worker that caches core routes for offline support).
+This repository tracks a Next.js PWA starter that replaces an older Dexie/IndexedDB DAO experiment. It uses TypeScript and Tailwind CSS, ships with a sidebar shell layout, a light/dark theme toggle, and a custom PWA setup (manifest plus a service worker that caches core routes for offline support).
 
 ## Getting started
 
