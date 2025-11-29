@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-background: #f5f6fb;
+  --color-foreground: #0f172a;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-accent: #6366f1;
+  color-scheme: light;
+}
+
+.dark {
+  --color-background: #0b1224;
+  --color-foreground: #e2e8f0;
+  --color-surface: #111a33;
+  --color-border: #1f2a44;
+  --color-accent: #8b5cf6;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-border bg-surface shadow-card transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -1,0 +1,23 @@
+.photo-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.photo-block__preview {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e2e8f0;
+  border: 1px solid #e2e8f0;
+}
+
+.photo-block__input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font: inherit;
+}
