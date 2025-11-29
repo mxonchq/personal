@@ -1,3 +1,16 @@
+# personal
+
+Набор простых моделей и хелперов для фиксации тренировок и вычисления личной статистики по каналу «Спорт».
+
+## Основные элементы
+- `WorkoutBlock` — пресет вокруг `MetricsBlock` с упражнениями (время, дистанция, калории, темп, список упражнений).
+- `compute_sport_records` — вычисляет персональные рекорды по весу, повторам, дистанции и скорости.
+- `build_sport_stats` — собирает виджет статистики: суммарные калории/км за период и личные рекорды.
+
+## Тесты
+```bash
+python -m pytest
+```
 # Personal PWA starter
 
 This repository tracks a Next.js PWA starter that replaces an older Dexie/IndexedDB DAO experiment. It uses TypeScript and Tailwind CSS, ships with a sidebar shell layout, a light/dark theme toggle, and a custom PWA setup (manifest plus a service worker that caches core routes for offline support).
