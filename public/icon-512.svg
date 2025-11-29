@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Personal workspace icon large">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1224" />
+      <stop offset="100%" stop-color="#1f2a44" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="64" fill="url(#bg)" />
+  <circle cx="176" cy="176" r="74" fill="#f5f6fb" fill-opacity="0.92" />
+  <rect x="262" y="134" width="134" height="32" rx="16" fill="#d1d8f0" />
+  <rect x="262" y="186" width="98" height="28" rx="14" fill="#a8b7dc" />
+  <rect x="118" y="314" width="276" height="44" rx="22" fill="#f5f6fb" fill-opacity="0.85" />
+  <rect x="182" y="372" width="148" height="38" rx="19" fill="#d1d8f0" />
+</svg>
