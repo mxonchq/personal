@@ -21,7 +21,7 @@ Minimal Next.js app using TypeScript and Tailwind CSS. The starter ships with a 
 
 - Manifest lives at `public/manifest.webmanifest` with text-based SVG icons (`icon-192.svg`, `icon-512.svg`) to avoid binary assets in the repository.
 - The service worker in `public/sw.js` pre-caches `/`, `/pwa`, `/settings`, and the manifest, then caches subsequent GET requests.
-- Registration occurs automatically on the client via `ServiceWorkerRegister`.
+- Registration occurs automatically on the client via `ServiceWorkerRegister` when running on HTTPS or localhost.
 
 ## Theming & layout
 
