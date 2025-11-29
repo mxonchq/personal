@@ -1,24 +1,18 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "allowJs": false,
-    "skipLibCheck": true,
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
-    "noEmit": true,
     "esModuleInterop": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "lib": ["ES2021", "DOM"],
+    "types": ["node"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
