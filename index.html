@@ -1,6 +1,89 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный журнал активности</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mini-lunr@0.2.5/dist/mini-lunr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Личный журнал</p>
+      <h1>Записи и статистика</h1>
+      <p class="lede">Ищите записи по тексту, фильтруйте по каналам и датам, а затем отслеживайте метрики на графиках.</p>
+    </div>
+    <div class="quick-filters">
+      <h2>Быстрые фильтры</h2>
+      <div class="chip-row" id="quickFilters">
+        <button data-range="7">Прошлая неделя</button>
+        <button data-range="30">Месяц</button>
+        <button data-range="365">Год</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Поиск и фильтры</p>
+          <h2>Записи</h2>
+        </div>
+        <div class="filters__row">
+          <div class="field">
+            <label for="searchInput">Поиск по тексту</label>
+            <input id="searchInput" type="search" placeholder="Название, заметки…" />
+          </div>
+          <div class="field">
+            <label for="channelSelect">Канал</label>
+            <select id="channelSelect"></select>
+          </div>
+          <div class="field compact">
+            <label for="startDate">От</label>
+            <input id="startDate" type="date" />
+          </div>
+          <div class="field compact">
+            <label for="endDate">До</label>
+            <input id="endDate" type="date" />
+          </div>
+          <button id="resetFilters" class="ghost">Сбросить</button>
+        </div>
+      </header>
+      <div id="results" class="results-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <header class="panel__header">
+        <div>
+          <p class="eyebrow">Аналитика</p>
+          <h2>Статистика</h2>
+        </div>
+        <div class="filters__row">
+          <div class="field">
+            <label for="statsChannel">Канал</label>
+            <select id="statsChannel"></select>
+          </div>
+          <div class="field compact">
+            <label for="statsStartDate">От</label>
+            <input id="statsStartDate" type="date" />
+          </div>
+          <div class="field compact">
+            <label for="statsEndDate">До</label>
+            <input id="statsEndDate" type="date" />
+          </div>
+        </div>
+      </header>
+      <div class="chart-wrapper">
+        <canvas id="metricsChart" aria-label="Графики по метрикам" role="img"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Журнал напоминаний</title>
