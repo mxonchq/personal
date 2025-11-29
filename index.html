@@ -1,5 +1,149 @@
 <!DOCTYPE html>
 <html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Журнал напоминаний</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <style>
+    :root {
+      color-scheme: light dark;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 1.5rem;
+      background: radial-gradient(circle at 20% 20%, #f3f4f6, transparent 35%),
+                  radial-gradient(circle at 80% 0%, #e0f2fe, transparent 25%),
+                  radial-gradient(circle at 50% 100%, #ede9fe, transparent 30%);
+      min-height: 100vh;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+      padding: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 1.75rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    button, input, select, textarea {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      background: #fff;
+    }
+    button {
+      cursor: pointer;
+      font-weight: 600;
+      border: none;
+      background: linear-gradient(120deg, #2563eb, #7c3aed);
+      color: #fff;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.35);
+    }
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); }
+    .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .actions button { flex: 1; min-width: 220px; }
+    .badge {
+      display: inline-flex;
+      gap: 0.35rem;
+      align-items: center;
+      padding: 0.35rem 0.65rem;
+      background: #ecfeff;
+      color: #0f172a;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid #bae6fd;
+    }
+    .log {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 12px;
+      min-height: 80px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .entry-list {
+      margin: 1rem 0 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .entry {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .entry strong { color: #0f172a; }
+    .muted { color: #475569; font-size: 0.9rem; }
+    .split { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .split > div { flex: 1; min-width: 220px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Локальные уведомления и резервные копии</h1>
+    <p class="muted">Запрашиваем разрешение, планируем напоминания по ключевым каналам и сохраняем записи в ZIP.</p>
+
+    <div class="grid">
+      <div>
+        <label>Канал</label>
+        <select id="channel"></select>
+      </div>
+      <div>
+        <label>Дата записи</label>
+        <input type="date" id="entryDate">
+      </div>
+    </div>
+    <label>Заметка</label>
+    <textarea id="note" rows="3" placeholder="Что важно помнить?"></textarea>
+    <button id="saveEntry">Сохранить запись</button>
+
+    <div class="actions" style="margin-top:1.25rem;">
+      <button id="requestPermission">Запросить разрешение на уведомления</button>
+      <button id="runReminder">Проверить напоминание</button>
+    </div>
+
+    <div class="actions" style="margin-top:0.75rem;">
+      <button id="backup">Резервная копия (ZIP)</button>
+      <button id="restore">Восстановить и объединить</button>
+      <input type="file" id="restoreInput" accept="application/zip" hidden>
+    </div>
+
+    <div class="badge" style="margin-top:1rem;">
+      <span>Статус уведомлений:</span>
+      <span id="permissionStatus">—</span>
+    </div>
+
+    <div class="entry-list" id="entries"></div>
+
+    <div class="log" id="log"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
