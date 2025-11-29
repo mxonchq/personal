@@ -27,8 +27,8 @@ def test_compute_sport_records():
     assert round(records.best_speed_kmh, 2) == 10.67
     assert records.best_weight.name == "Squat"
     assert records.best_weight.weight == 100
-    assert records.best_reps.name == "Bench Press"
-    assert records.best_reps.total_reps() == 30
+    assert records.best_reps.name == "Pull-up"
+    assert records.best_reps.total_reps() == 32
 
 
 def test_build_sport_stats_filters_period():

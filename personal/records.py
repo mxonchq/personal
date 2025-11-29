@@ -71,7 +71,9 @@ def compute_sport_records(entries: Iterable[WorkoutEntry]) -> PersonalRecords:
         for exercise in block.exercises:
             if not records.best_weight or exercise.weight > records.best_weight.weight:
                 records.best_weight = exercise
-            if not records.best_reps or exercise.reps > records.best_reps.reps:
+
+            total_reps = exercise.total_reps()
+            if not records.best_reps or total_reps > records.best_reps.total_reps():
                 records.best_reps = exercise
 
     return records
