@@ -1,0 +1,25 @@
+.metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 12px;
+}
+
+.metric-row__label,
+.metric-row__value {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  padding: 10px;
+  font: inherit;
+  color: #0f172a;
+}
+
+.metric-row__value {
+  text-align: right;
+}
