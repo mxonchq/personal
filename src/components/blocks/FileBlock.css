@@ -1,0 +1,19 @@
+.file-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.file-block__input,
+.file-block__textarea {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  background: #f8fafc;
+  font: inherit;
+  color: #0f172a;
+}
+
+.file-block__textarea {
+  resize: vertical;
+}

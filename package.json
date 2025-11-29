@@ -1,0 +1,20 @@
+{
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "IndexedDB DAO layer with export/import utilities",
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dexie": "^4.0.9",
+    "jszip": "^3.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  }
+}
