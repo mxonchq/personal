@@ -19,7 +19,7 @@ Minimal Next.js app using TypeScript and Tailwind CSS. Includes a sidebar shell 
 
 ## PWA
 
- - Manifest lives at `public/manifest.webmanifest` with text-based SVG icons (`icon-192.svg`, `icon-512.svg`) to avoid binary assets.
+- Manifest lives at `public/manifest.webmanifest` with text-based SVG icons (`icon-192.svg`, `icon-512.svg`) to avoid binary assets in the repository.
 - The service worker in `public/sw.js` pre-caches `/`, `/pwa`, `/settings`, and the manifest, then caches subsequent GET requests.
 - Registration occurs automatically on the client via `ServiceWorkerRegister`.
 
